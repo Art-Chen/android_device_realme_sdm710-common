@@ -133,6 +133,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.latch_unsignaled=1 \
     debug.sf.disable_backpressure=1 \
 		debug.sf.enable_gl_backpressure=1 \
+		debug.sf.early_phase_offset_ns=5000000 \
     persist.demo.hdmirotationlock=false \
     persist.sys.sf.color_saturation=1.0 \
     ro.opengles.version=196610 \
