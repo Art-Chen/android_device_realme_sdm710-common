@@ -91,7 +91,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.feature.wsa.enable=false \
     vendor.audio.volume.headset.gain.depcal=true \
     vendor.audio_hal.period_size=192
-    
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac \
@@ -132,6 +132,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
     debug.sf.disable_backpressure=1 \
+		debug.sf.enable_gl_backpressure=1 \
     persist.demo.hdmirotationlock=false \
     persist.sys.sf.color_saturation=1.0 \
     ro.opengles.version=196610 \
@@ -170,8 +171,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.radio.sib16_support=1 \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
     persist.vendor.radio.procedure_bytes=SKIP
-    
-    
+
+
 # Dirac
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.dirac.acs.controller=gef \
