@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012-2018 The Linux Foundation. All rights reserved.
-
+<!-- Copyright (C) 2012-2013 The Android Open Source Project
+     Copyright (C) 2012-2019 The Linux Foundation. All rights reserved.
      Not a contribution.
 
      Copyright (C) 2012-2013 The Android Open Source Project
@@ -250,11 +250,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="frame-rate" range="1-30" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-<<<<<<< HEAD:configs/media/media_codecs_sdm710_v0.xml
-            <Limit name="concurrent-instances" max="16" />
-=======
             <Limit name="concurrent-instances" max="3" />
->>>>>>> 1917fcf... sdm845-common: Change secure max instances to 3:configs/media_codecs.xml
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.vp8" type="video/x-vnd.on2.vp8" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -291,11 +287,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="frame-rate" range="1-60" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-<<<<<<< HEAD:configs/media/media_codecs_sdm710_v0.xml
-            <Limit name="concurrent-instances" max="12" />
-=======
             <Limit name="concurrent-instances" max="3" />
->>>>>>> 1917fcf... sdm845-common: Change secure max instances to 3:configs/media_codecs.xml
         </MediaCodec>
         <MediaCodec name="OMX.qcom.video.decoder.hevc" type="video/hevc" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -320,11 +312,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="frame-rate" range="1-60" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-<<<<<<< HEAD:configs/media/media_codecs_sdm710_v0.xml
-            <Limit name="concurrent-instances" max="16" />
-=======
             <Limit name="concurrent-instances" max="3" />
->>>>>>> 1917fcf... sdm845-common: Change secure max instances to 3:configs/media_codecs.xml
         </MediaCodec>
         <!-- Video Software -->
         <MediaCodec name="OMX.qti.video.decoder.h263sw" type="video/3gpp" >
@@ -395,7 +383,7 @@ Only the three quirks included above are recognized at this point:
             <Feature name="adaptive-playback" />
             <Limit name="concurrent-instances" max="16" />
         </MediaCodec>
-        <!-- Audio Software  -->
+        <MediaCodec name="OMX.google.opus.decoder" type="audio/opus" update="true" rank="100"/>
     </Decoders>
     <Include href="media_codecs_google_video.xml" />
 </MediaCodecs>
