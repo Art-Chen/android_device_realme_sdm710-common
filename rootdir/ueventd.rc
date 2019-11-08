@@ -403,3 +403,8 @@ firmware_directories /vendor/firmware_mnt/image/
 #liangkun@Swdp.shanghai 2017.05.18, change default owner for /dev/kneuron node
 /dev/kneuron              0660   system     system
 #endif /* VENDOR_EDIT */
+
+# FPC1020 Fingerprint
+/sys/bus/platform/devices/soc:fpc_fpc1020 irq             0660 system system
+/sys/bus/platform/devices/soc:fpc_fpc1020 irq_enable      0660 system system
+/sys/bus/platform/devices/soc:fpc_fpc1020 wakelock_enable 0660 system system
