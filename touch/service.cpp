@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.realme_rmx1901"
+#define LOG_TAG "vendor.mokee.touch@1.0-service.realme_sdm710"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>

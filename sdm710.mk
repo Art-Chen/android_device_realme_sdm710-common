@@ -14,7 +14,7 @@ $(call inherit-product-if-exists, vendor/realme/sdm710-common/sdm710-common-vend
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-mokee
 
 # Vendor properties
 -include $(LOCAL_PATH)/vendor_props.mk
@@ -384,7 +384,7 @@ PRODUCT_PACKAGES += \
 
 # Trust HAL
 PRODUCT_PACKAGES += \
-    vendor.lineage.trust@1.0-service
+    vendor.mokee.trust@1.0-service
     
 # Touch HAL
 PRODUCT_PACKAGES += \
