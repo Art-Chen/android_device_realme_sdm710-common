@@ -14,8 +14,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "vendor.mokee.touch@1.0-service.realme_rmx1901",
-    init_rc: ["vendor.mokee.touch@1.0-service.realme_rmx1901.rc"],
+    name: "vendor.mokee.touch@1.0-service.realme_sdm710",
+    init_rc: ["vendor.mokee.touch@1.0-service.realme_sdm710.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     vendor: true,

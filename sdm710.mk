@@ -385,7 +385,11 @@ PRODUCT_PACKAGES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
-
+    
+# Touch HAL
+PRODUCT_PACKAGES += \
+    vendor.mokee.touch@1.0-service.realme_sdm710
+    
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service \
