@@ -166,7 +166,6 @@ VENDOR_SECURITY_PATCH := 2019-08-05
 include device/qcom/sepolicy/sepolicy.mk
 
 # Treble
-BOARD_VNDK_RUNTIME_DISABLE := false
 BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
 
