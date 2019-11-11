@@ -309,7 +309,9 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
+    android.hardware.power@1.0-service \
+    android.hardware.power@1.0-impl \
+    power.sdm710
 
 # QMI
 PRODUCT_PACKAGES += \
@@ -382,11 +384,11 @@ PRODUCT_PACKAGES += \
 # Trust HAL
 PRODUCT_PACKAGES += \
     vendor.mokee.trust@1.0-service
-    
+
 # Touch HAL
 PRODUCT_PACKAGES += \
     vendor.mokee.touch@1.0-service.realme_sdm710
-    
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service \
