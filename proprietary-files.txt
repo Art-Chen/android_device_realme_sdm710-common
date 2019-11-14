@@ -602,7 +602,6 @@ vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/lib/libgnss.so
 vendor/lib/libgnsspps.so
-vendor/lib/libgps.utils.so
 vendor/lib/libloc_core.so
 vendor/lib/liblocation_api.so
 vendor/lib64/libdataitems.so
@@ -835,8 +834,6 @@ vendor/lib/libvpplibrary.so
 vendor/lib/libvpptestutils.so
 vendor/lib/libvqzip.so
 vendor/lib/vendor.qti.hardware.vpp@1.1.so
-vendor/lib/vndk/libstagefright_foundation.so
-vendor/lib/vndk/libstagefright_omx.so
 vendor/lib64/libAlacSwDec.so
 vendor/lib64/libApeSwDec.so
 vendor/lib64/libFlacSwDec.so
