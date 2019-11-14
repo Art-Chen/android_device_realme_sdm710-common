@@ -134,7 +134,6 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
     /vendor/bt_firmware:/bt_firmware \
     /vendor/dsp:/dsp \
     /vendor/firmware_mnt:/firmware
@@ -169,6 +168,7 @@ VENDOR_SECURITY_PATCH := 2019-08-05
 
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Treble
 BOARD_VNDK_VERSION := current
