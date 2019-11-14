@@ -11,9 +11,9 @@ set -e
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-MK_ROOT="${MY_DIR}"/../../..
+MOKEE_ROOT="${MY_DIR}"/../../..
 
-HELPER="${MK_ROOT}/vendor/mk/build/tools/extract_utils.sh"
+HELPER="${MOKEE_ROOT}/vendor/mokee/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -63,5 +63,8 @@ if [ -s "${MY_DIR}/../${DEVICE}/proprietary-files.txt" ]; then
     extract "${MY_DIR}/../${DEVICE}/proprietary-files.txt" "${SRC}" \
             "${KANG}" --section "${SECTION}"
 fi
+DEVICE_BLOB_ROOT="$MOKEE_ROOT"/vendor/"$VENDOR"/"${DEVICE_COMMON}"/proprietary
+patchelf --add-needed libprocessgroup.so "$DEVICE_BLOB_ROOT"/vendor/lib64/libgps.utils.so
+patchelf --add-needed libprocessgroup.so "$DEVICE_BLOB_ROOT"/vendor/lib/libgps.utils.so
 
 "${MY_DIR}/setup-makefiles.sh"
