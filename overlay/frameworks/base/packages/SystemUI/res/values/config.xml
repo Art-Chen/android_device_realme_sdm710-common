@@ -22,11 +22,4 @@
 <resources>
     <!-- Doze: does this device support STATE_DOZE?  -->
     <bool name="doze_display_state_supported">true</bool>
-
-    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
-    <bool name="config_cleanupUnusedFingerprints">false</bool>
-
-    <!-- Whether to post reset runnable for all clients -->
-    <bool name="config_postResetRunnableForAllClients">true</bool>
-
 </resources>
