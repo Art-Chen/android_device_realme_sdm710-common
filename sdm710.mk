@@ -16,7 +16,7 @@ $(call inherit-product-if-exists, vendor/realme/sdm710-common/sdm710-common-vend
 
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUIGoogle
+    SystemUI
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
