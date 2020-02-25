@@ -66,6 +66,7 @@ persist.vendor.ims.disableUserAgent=0
 DEVICE_PROVISIONED=1
 persist.radio.atfwd.start=true
 persist.radio.flexmap_type=none
+persist.sys.fflag.override.settings_network_and_internet_v2=true
 persist.vendor.radio.force_on_dc=true
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.lte_vrte_ltd=1
