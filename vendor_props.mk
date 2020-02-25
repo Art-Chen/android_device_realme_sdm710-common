@@ -44,6 +44,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.voice.path.for.pcm.voip=true
 
 # Audio Dymatic Prop
+PRODUCT_PROPERTY_OVERRIDES += \
     vendor.audio.apptype.multirec.enabled=false \
     vendor.audio.dolby.ds2.enabled=false \
     vendor.audio.dolby.ds2.hardbypass=false \
