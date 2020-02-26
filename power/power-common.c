@@ -29,6 +29,10 @@
 
 #define LOG_NIDEBUG 0
 
+#ifndef TAP_TO_WAKE_NODE
+#define TAP_TO_WAKE_NODE "/proc/touchpanel/double_tap_enable"
+#endif
+
 #include <dlfcn.h>
 #include <errno.h>
 #include <fcntl.h>
