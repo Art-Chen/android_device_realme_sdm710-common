@@ -466,6 +466,7 @@
     <!-- Should we filter any display modes which are unampped? -->
     <bool name="config_filterDisplayModes">true</bool>
 
-    <!-- Whether to post reset runnable for all clients -->
-    <bool name="config_postResetRunnableForAllClients">true</bool>
+    <!-- Whether to post reset runnable for all clients. Needed for some older </resources>
+     <bool name="config_postResetRunnableForAllClients">true</bool>                  vendor fingerprint HAL implementations. -->
+    <bool name="config_fingerprintPostResetRunnableForAllClients">true</bool>
 </resources>
