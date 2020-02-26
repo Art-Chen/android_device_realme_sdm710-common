@@ -1472,6 +1472,13 @@ service vendor.audio-hal-2-0 /vendor/bin/hw/android.hardware.audio@2.0-service
     interface android.hardware.audio@4.0::IDevicesFactory default
     interface android.hardware.audio@2.0::IDevicesFactory default
 
+service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
+    override
+    class hal
+    user system
+    group system wakelock input
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
 
 #ifdef VENDOR_EDIT
 #Hongyu.lu@BSP.Fingerprint.Basic, 2018/11/24, Add for face init.rc
