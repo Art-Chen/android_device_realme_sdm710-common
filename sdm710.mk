@@ -137,7 +137,8 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-		libldacBT_dec
+    libbthost_if \
+    libldacBT_dec
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -284,6 +285,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.realme_sdm710 \
     lights.sdm710
+
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    vendor.mokee.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
