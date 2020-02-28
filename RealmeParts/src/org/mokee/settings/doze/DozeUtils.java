@@ -43,10 +43,12 @@ public final class DozeUtils {
 
     protected static final String CATEG_PICKUP_SENSOR = "pickup_sensor";
     protected static final String CATEG_PROX_SENSOR = "proximity_sensor";
+    protected static final String CATEG_MOTION_SENSOR = "motion_sensor";
 
     protected static final String GESTURE_PICK_UP_KEY = "gesture_pick_up";
     protected static final String GESTURE_HAND_WAVE_KEY = "gesture_hand_wave";
     protected static final String GESTURE_POCKET_KEY = "gesture_pocket";
+    protected static final String GESTURE_MOTION_KEY = "gesture_motion";
 
     public static void startService(Context context) {
         if (DEBUG) Log.d(TAG, "Starting service");
@@ -122,6 +124,10 @@ public final class DozeUtils {
         return isGestureEnabled(context, GESTURE_PICK_UP_KEY);
     }
 
+    protected static boolean isMotionGestureEnabled(Context context) {
+        return isGestureEnabled(context, GESTURE_MOTION_KEY);
+    }
+
     protected static boolean isHandwaveGestureEnabled(Context context) {
         return isGestureEnabled(context, GESTURE_HAND_WAVE_KEY);
     }
@@ -132,7 +138,7 @@ public final class DozeUtils {
 
     public static boolean sensorsEnabled(Context context) {
         return isPickUpEnabled(context) || isHandwaveGestureEnabled(context)
-                || isPocketGestureEnabled(context);
+                || isPocketGestureEnabled(context) || isMotionGestureEnabled(context);
     }
 
     protected static Sensor getSensor(SensorManager sm, String type) {

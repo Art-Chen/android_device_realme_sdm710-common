@@ -22,37 +22,37 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.SystemClock;
 import android.util.Log;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class ProximitySensor implements SensorEventListener {
+public class MoveDetectSensor implements SensorEventListener {
 
-    private static final boolean DEBUG = false;
-    private static final String TAG = "ProximitySensor";
+    private static final boolean DEBUG = true;
+    private static final String TAG = "MoveDetectSensor";
 
-    private static final String FAKE_PROXIMITY_SENSOR = "qti.sensor.proximity_fake";
+    private static final String MOVE_DETECT_SENSOR = "qti.sensor.move_detect";
 
-    // Maximum time for the hand to cover the sensor: 1s
-    private static final int HANDWAVE_MAX_DELTA_NS = 1000 * 1000 * 1000;
-
-    // Minimum time until the device is considered to have been in the pocket: 2s
-    private static final int POCKET_MIN_DELTA_NS = 2000 * 1000 * 1000;
+    private static final int MIN_PULSE_INTERVAL_MS = 2500;
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
+    private Sensor mFakeProximitySensor;
     private Context mContext;
     private ExecutorService mExecutorService;
 
-    private boolean mSawNear = false;
-    private long mInPocketTime = 0;
+    private long mEntryTimestamp;
 
-    public ProximitySensor(Context context) {
+    private static boolean isNear = false;
+
+    public MoveDetectSensor(Context context) {
         mContext = context;
         mSensorManager = mContext.getSystemService(SensorManager.class);
-        mSensor = DozeUtils.getSensor(mSensorManager, FAKE_PROXIMITY_SENSOR);
+        mSensor = DozeUtils.getSensor(mSensorManager, MOVE_DETECT_SENSOR);
+        mFakeProximitySensor = DozeUtils.getSensor(mSensorManager, "qti.sensor.proximity_fake");
         mExecutorService = Executors.newSingleThreadExecutor();
     }
 
@@ -62,29 +62,18 @@ public class ProximitySensor implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        boolean isNear = event.values[0] < mSensor.getMaximumRange();
-        if (mSawNear && !isNear) {
-            if (shouldPulse(event.timestamp)) {
-                DozeUtils.launchDozePulse(mContext);
-            }
-        } else {
-            mInPocketTime = event.timestamp;
-        }
-        mSawNear = isNear;
-    }
+        if (DEBUG) Log.d(TAG, "Got sensor event: " + event.values[0]);
 
-    private boolean shouldPulse(long timestamp) {
-        long delta = timestamp - mInPocketTime;
-
-        if (DozeUtils.isHandwaveGestureEnabled(mContext) &&
-                DozeUtils.isPocketGestureEnabled(mContext)) {
-            return true;
-        } else if (DozeUtils.isHandwaveGestureEnabled(mContext)) {
-            return delta < HANDWAVE_MAX_DELTA_NS;
-        } else if (DozeUtils.isPocketGestureEnabled(mContext)) {
-            return delta >= POCKET_MIN_DELTA_NS;
+        long delta = SystemClock.elapsedRealtime() - mEntryTimestamp;
+        if (delta < MIN_PULSE_INTERVAL_MS) {
+            return;
         }
-        return false;
+
+        mEntryTimestamp = SystemClock.elapsedRealtime();
+
+        if (event.values[0] == 2.0f && !isNear) {
+            DozeUtils.launchDozePulse(mContext);
+        }
     }
 
     @Override
@@ -97,13 +86,27 @@ public class ProximitySensor implements SensorEventListener {
         submit(() -> {
             mSensorManager.registerListener(this, mSensor,
                     SensorManager.SENSOR_DELAY_NORMAL);
+            mSensorManager.registerListener(mProximitySensorListener, mFakeProximitySensor,
+                    SensorManager.SENSOR_DELAY_NORMAL);
+            mEntryTimestamp = SystemClock.elapsedRealtime();
         });
     }
 
     protected void disable() {
         if (DEBUG) Log.d(TAG, "Disabling");
         submit(() -> {
+            mSensorManager.unregisterListener(mProximitySensorListener, mFakeProximitySensor);
             mSensorManager.unregisterListener(this, mSensor);
         });
     }
+
+    private final SensorEventListener mProximitySensorListener = new SensorEventListener() {
+        public void onSensorChanged(SensorEvent event) {
+            isNear = (event.values[0] == 0.0f);
+            Log.i(TAG,"isNear: " + isNear);
+        }
+
+        public void onAccuracyChanged(Sensor sensor, int i) {
+        }
+    };
 }
