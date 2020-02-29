@@ -41,7 +41,7 @@
 
         <SwitchPreference
             android:key="gesture_motion"
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:title="@string/motion_gesture_title"
             android:summary="@string/motion_gesture_summary" />
 
