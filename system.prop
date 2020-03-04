@@ -79,3 +79,6 @@ telephony.lteOnCdmaDevice=1
 # SSR
 persist.vendor.ssr.enable_ramdumps=0
 persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Maintainer
+ro.mk.maintainer=chenxy
