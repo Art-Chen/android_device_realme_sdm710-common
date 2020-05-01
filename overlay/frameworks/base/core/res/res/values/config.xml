@@ -445,7 +445,10 @@
 
     <!-- True if the device supports Sustained Performance Mode-->
     <bool name="config_sustainedPerformanceModeSupported">true</bool>
-
+    
+    <!-- Should we filter any display modes which are unampped? -->
+    <bool name="config_filterDisplayModes">true</bool>
+        
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>
 

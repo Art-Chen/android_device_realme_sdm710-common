@@ -192,3 +192,12 @@ persist.dirac.gef.int.did=15,19,134,150
 persist.dirac.gef.int.mid=0x10012DE0
 persist.dirac.path=/vendor/etc/dirac/
 persist.dirac.qem.oppo.syss=true
+
+# Low Memory Killer
+ro.lmk.low=1001
+ro.lmk.medium=800
+ro.lmk.critical=0
+ro.lmk.critical_upgrade=false
+ro.lmk.upgrade_pressure=100
+ro.lmk.downgrade_pressure=100
+ro.lmk.kill_heaviest_task=true
