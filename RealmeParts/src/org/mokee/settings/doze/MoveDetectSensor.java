@@ -36,7 +36,7 @@ public class MoveDetectSensor implements SensorEventListener {
 
     private static final String MOVE_DETECT_SENSOR = "qti.sensor.move_detect";
 
-    private static final int MIN_PULSE_INTERVAL_MS = 2500;
+    private static final int MIN_PULSE_INTERVAL_MS = 1000;
 
     private SensorManager mSensorManager;
     private Sensor mSensor;
