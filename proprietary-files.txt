@@ -1597,7 +1597,7 @@ vendor/lib/libwfduibcsrcinterface_proprietary.so
 vendor/lib/libwfduibcsrc_proprietary.so
 vendor/lib64/libwfdhdcpcp.so
 vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0.so
-vendor/lib/vendor.qti.hardware.wifidisplaysession@1.0-halimpl.so
+vendor/lib/vendor.qti.hardware.wifidisplaysessionl@1.0-halimpl.so
 vendor/lib64/vendor.qti.hardware.wifidisplaysession@1.0.so
 
 # WiFi
